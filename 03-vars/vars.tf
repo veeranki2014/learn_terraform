@@ -58,3 +58,16 @@ variable "course_details" {
   }
 }
 
+## How to access variables in terrrafrom
+output "course" {
+  value = var.course
+}
+
+output "courses" {
+  value = var.courses
+}
+
+output "course_details" {
+  value = var.course_details
+}
+
