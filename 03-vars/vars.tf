@@ -75,3 +75,7 @@ variable "env" {}
 output "dev_prod" {
   value = var.env
 }
+variable "url" {}
+output "tfvars" {
+  value = var.url
+}
