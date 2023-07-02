@@ -43,3 +43,7 @@ resource "aws_security_group" "main" {
 }
 
 variable "name" {}
+
+output "public_ip" {
+  value = aws_instance.main.public_ip
+}
