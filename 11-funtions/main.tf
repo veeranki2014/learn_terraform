@@ -11,13 +11,13 @@ variable "fruits" {
   default = ["apple", "banana", "orange"]
 }
 
-output "fruits_length" {
-  value = length(var.fruits)
-}
-
-output "fruits_element" {
-  value = element ( var.fruits, length(var.fruits)-2 )
-}
+#output "fruits_length" {
+#  value = length(var.fruits)
+#}
+#
+#output "fruits_element" {
+#  value = element ( var.fruits, length(var.fruits)-2 )
+#}
 
 variable "classes" {
   default = {
@@ -31,9 +31,9 @@ variable "classes" {
   }
 }
 
-output "devops_topics" {
-  value = var.classes["devops"]["topics"]
-}
+#output "devops_topics" {
+#  value = var.classes["devops"]["topics"]
+#}
 
 output "aws_topics" {
   value = lookup(var.classes,"aws", null )
