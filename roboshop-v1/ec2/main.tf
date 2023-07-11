@@ -1,33 +1,33 @@
 resource "aws_instance" "main" {
-  instance_type               = "t2.micro"
-  ami                         = data.aws_ami.main.id
-  vpc_security_group_ids      = [ aws_security_group.main.id]
+  instance_type          = "t2.micro"
+  ami                    = data.aws_ami.main.id
+  vpc_security_group_ids = [aws_security_group.main.id]
 
-  tags                        = {
-    Name                      = var.name
+  tags = {
+    Name = var.name
   }
 
-}
+  provisioner "remote-exec" {
 
-provisioner "remote-exec"{
-
-  connection{
-    type                    = "ssh"
-    user                    = "centos"
-    password                = "DevOps321"
-    host                    = self.public_ip
+    connection {
+      type     = "ssh"
+      user     = "centos"
+      password = "DevOps321"
+      host     = self.public_ip
+    }
+    inline = [
+      "sudo labauto ansible",
+      "ansible-pull -i localhost, -U https://github.com/veeranki2014/roboshop-ansible main.yml -e env=dev -e role_name=${var.name}"
+    ]
   }
-  inline                    = [
-    "sudo labauto ansible",
-    "ansible-pull -i localhost, -U https://github.com/veeranki2014/roboshop-ansible main.yml -e env=dev -e role_name=${var.name}"
-  ]
+
 }
 
 resource "aws_route53_record" "main" {
   zone_id                   = "Z05376581OAZJMHDM806A"
   name                      = "${var.name}"
   type                      = "A"
-  zone_id                   = "30"
+  ttl                       = 30
   records                   = [aws_instance.main.private_ip]
 }
 
