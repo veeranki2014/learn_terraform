@@ -3,9 +3,9 @@ variable "class" {
 }
 
 ##Print above value
-output "class" {
-  value = upper(var.class)
-}
+#output "class" {
+#  value = upper(var.class)
+#}
 
 variable "fruits" {
   default = ["apple", "banana", "orange"]
@@ -36,5 +36,5 @@ variable "classes" {
 #}
 
 output "aws_topics" {
-  value = lookup(var.classes,"aws", null )
+  value = lookup (lookup(var.classes,"aws", null ), "topics", null)
 }
