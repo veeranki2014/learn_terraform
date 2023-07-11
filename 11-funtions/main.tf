@@ -11,6 +11,10 @@ variable "fruits" {
   default = ["apple", "banana", "orange"]
 }
 
-output "fruits_names" {
+output "fruits_length" {
   value = length(var.fruits)
+}
+
+output "fruits_element" {
+  value = element(var.fruits,1 )
 }
