@@ -13,7 +13,7 @@
 #  value = var.sample01
 #}
 #
-### if sometime if any variable/reference combination of someother stings, we can access using ${} flower braces.
+### if sometime if any variable/reference combination of some other strings, we can access using ${} flower braces.
 #output "sample_ext" {
 #  value = "testing variable in double quotes ${var.sample01 }"
 #}
