@@ -18,3 +18,23 @@ output "fruits_length" {
 output "fruits_element" {
   value = element ( var.fruits, length(var.fruits)-2 )
 }
+
+variable "classes" {
+  default = {
+    devops = {
+      name = "devops"
+      topics = ["jenkins", "docker"]
+    }
+    aws = {
+      name = "aws"
+    }
+  }
+}
+
+output "devops_topics" {
+  value = var.classes["devops"]["topics"]
+}
+
+output "aws_topics" {
+  value = var.classes["aws"]["topics"]
+}
