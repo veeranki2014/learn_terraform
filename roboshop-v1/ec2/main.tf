@@ -13,7 +13,7 @@ resource "aws_instance" "main" {
       type                = "ssh"
       user                = "centos"
       password            = "DevOps321"
-      host                = self.public_ip
+      host                = aws_instance.main.public_ip
     }
     inline                = [
       "sudo labauto ansible",
@@ -44,7 +44,7 @@ resource "aws_security_group" "main" {
   ingress {
     from_port               = 0
     to_port                 = 0
-    protocol                = "tcp"
+    protocol                = "-1"
     cidr_blocks             = ["0.0.0.0/0"]
 
   }
