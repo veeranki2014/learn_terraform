@@ -16,5 +16,5 @@ output "fruits_length" {
 }
 
 output "fruits_element" {
-  value = element(var.fruits, length(var.fruits) )
+  value = element(var.fruits, length(var.fruits)-1 )
 }
