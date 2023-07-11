@@ -36,5 +36,5 @@ module "rabbitmq" {
 }
 module "payment" {
   source = "./ec2"
-  name  = "frontend"
+  name  = "payment"
 }
