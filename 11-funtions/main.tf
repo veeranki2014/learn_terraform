@@ -36,5 +36,5 @@ variable "classes" {
 #}
 
 output "aws_topics" {
-  value = lookup (lookup(var.classes,"aws", null ), "topics", null)
+  value = lookup (lookup(var.classes,"aws", null ), "topics", "no topics so far")
 }
