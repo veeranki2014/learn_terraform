@@ -9,9 +9,8 @@ resource "aws_instance" "main" {
 }
 
 resource "null_resource" "ansible" {
-
+  depends_on = [aws_instance.main, aws_route53_record.main]
   provisioner "remote-exec" {
-
     connection {
       type                = "ssh"
       user                = "centos"
