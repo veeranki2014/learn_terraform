@@ -6,6 +6,9 @@ resource "aws_instance" "main" {
   tags = {
     Name = var.name
   }
+}
+
+resource "null_resource" "ansible" {
 
   provisioner "remote-exec" {
 
@@ -20,7 +23,6 @@ resource "aws_instance" "main" {
       "ansible-pull -i localhost, -U https://github.com/veeranki2014/roboshop_ansible main.yml -e env=dev -e role_name=${var.name}"
     ]
   }
-
 }
 
 resource "aws_route53_record" "main" {
