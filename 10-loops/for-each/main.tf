@@ -4,7 +4,7 @@ resource "aws_instance" "web" {
   instance_type             = "t2.micro"
   #count                     = length(var.instances)
   tags                      = {
-    Name                    = element(var.instances)
+    Name                    = "Helloworld"
   }
 }
 
