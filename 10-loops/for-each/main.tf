@@ -1,7 +1,7 @@
 resource "aws_instance" "web" {
   for_each                  = var.instances
   ami                       = data.aws_ami.main.id
-  instance_type             = lookup( each.value,"instance_type" "t2.micro" )
+  instance_type             = lookup( each.value,"instance_type", "t2.micro" )
   #count                     = length(var.instances)
   tags                      = {
     Name                    = each.key
