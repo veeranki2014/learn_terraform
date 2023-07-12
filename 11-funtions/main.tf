@@ -31,10 +31,10 @@ variable "classes" {
   }
 }
 
-output "devops_topics" {
-  value = var.classes["devops"]["topics"]
-}
-
-#output "aws_topics" {
-#  value = lookup (lookup(var.classes,"xyz", null ), "topics", null)
+#output "devops_topics" {
+#  value = var.classes["devops"]["topics"]
 #}
+
+output "aws_topics" {
+  value = lookup (lookup(var.classes,"aws", null ), "topics", null)
+}
