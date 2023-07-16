@@ -25,7 +25,7 @@ resource "null_resource" "ansible" {
 }
 
 resource "aws_route53_record" "main" {
-  zone_id                   = "Z05376581OAZJMHDM806A"
+  zone_id                   = "Z05332201VBHF9VM3Q9N5"
   name                      = "${var.name}"
   type                      = "A"
   ttl                       = 30
